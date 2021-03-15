@@ -1,0 +1,12 @@
+{
+  "name": "com.erethan.scriptableservices",
+  "version": "1.0.0",
+  "displayName": "Scriptable Services",
+  "description": "Provides an implementation of Scriptable Service pattern in Unity.",
+  "unity": "2019.4",
+  "author": {
+    "name": "Erethan",
+    "email": "ericmsbr@hotmail.com",
+    "url": "https://github.com/Erethan"
+  }
+}
