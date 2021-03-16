@@ -47,11 +47,13 @@ namespace Erethan.ScriptableServices
             if (ControllerBehaviour == null)
                 return;
             Destroy(ControllerBehaviour.gameObject);
+            FreeComplete?.Invoke();
         }
 
         public virtual void Startup()
         {
             _controllerBehaviour = InstantiateNewBehaviour();
+            InitializationComplete?.Invoke();
         }
 
 
