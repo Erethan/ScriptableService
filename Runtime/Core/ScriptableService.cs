@@ -38,7 +38,6 @@ namespace Erethan.ScriptableServices
             }
         }
 
-
         public event Action InitializationComplete;
         public event Action FreeComplete;
 
@@ -50,12 +49,21 @@ namespace Erethan.ScriptableServices
             FreeComplete?.Invoke();
         }
 
-        public virtual void Startup()
+        public void Startup()
         {
+            if (_controllerBehaviour != null)
+            {
+                Debug.Log("Service is already up");
+            }
             _controllerBehaviour = InstantiateNewBehaviour();
+
+            ConfigureBehaviour();
+            ControllerBehaviour.Initialize();
+
             InitializationComplete?.Invoke();
         }
 
+        protected virtual void ConfigureBehaviour() { }
 
     }
 }
