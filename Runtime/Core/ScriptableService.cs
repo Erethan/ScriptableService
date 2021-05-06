@@ -8,14 +8,18 @@ namespace Erethan.ScriptableServices
 {
     public abstract class ScriptableService<TBehaviour> : ScriptableObject, IService where TBehaviour : ScriptableServiceBehaviour
     {
+        public virtual bool DestroyOnLoad { get; } = true;
 
         private TBehaviour InstantiateNewBehaviour() 
         {
             TBehaviour instance = new GameObject()
                 .AddComponent<TBehaviour>();
 
+            if(DestroyOnLoad)
+            {
+                DontDestroyOnLoad(instance.gameObject);
+            }
 
-            DontDestroyOnLoad(instance.gameObject);
             instance.gameObject.name = $"{typeof(TBehaviour)}";
             instance.Initialize();
             return instance;
