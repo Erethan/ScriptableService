@@ -21,7 +21,7 @@ namespace Erethan.ScriptableServices
             }
 
             instance.gameObject.name = $"{typeof(TBehaviour)}";
-            instance.Initialize();
+            //instance.Initialize();
             return instance;
         }
 
